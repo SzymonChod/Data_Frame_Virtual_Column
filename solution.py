@@ -44,7 +44,6 @@ def add_virtual_column(df: pd.DataFrame, role: str, new_column: str) -> pd.DataF
     try:
         df[new_column] = operations[op](df[col1], df[col2])
     except (TypeError, ValueError, KeyError) as e:
-        print(f"Failed to compute virtual column: {e}")
         return pd.DataFrame()
 
     return df
